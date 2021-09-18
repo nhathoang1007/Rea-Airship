@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="iView"
+            type="com.jason.app.view.account.details.CardDetailsView" />
+    </data>
+
+    <com.jason.app.customize.view.scroll.JsScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/primary_color">
+
+            <View
+                android:id="@+id/container_space"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/ready_to_spend_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="24dp"
+                android:text="Ready to spend"
+                android:textColor="@color/color_grey"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.7" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/spend_amount_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:letterSpacing="0.1"
+                android:text="1,000,000.00"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/ready_to_spend_tv"
+                app:layout_constraintTop_toBottomOf="@+id/ready_to_spend_tv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginBottom="4dp"
+                android:letterSpacing="0.1"
+                android:text="SGD"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/spend_amount_tv"
+                app:layout_constraintStart_toEndOf="@+id/spend_amount_tv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/total_cash_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:letterSpacing="0.1"
+                android:text="Total cash: 10,000,000.00 SGD"
+                android:textColor="@color/color_grey"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@+id/ready_to_spend_tv"
+                app:layout_constraintTop_toBottomOf="@+id/spend_amount_tv" />
+
+            <View
+                android:id="@+id/break_line"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:background="@color/color_grey"
+                app:layout_constraintEnd_toEndOf="@id/ready_to_spend_tv"
+                app:layout_constraintStart_toStartOf="@+id/ready_to_spend_tv"
+                app:layout_constraintTop_toBottomOf="@+id/total_cash_tv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/statement_date_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Statement - Mar 2021"
+                android:textColor="@color/color_grey"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@+id/ready_to_spend_tv"
+                app:layout_constraintStart_toStartOf="@+id/ready_to_spend_tv"
+                app:layout_constraintTop_toBottomOf="@+id/break_line" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/pay_or_transfer_btn"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_rectangle_radius_4dp"
+                android:backgroundTint="@color/color_green"
+                android:text="Pay or transfer"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@+id/ready_to_spend_tv"
+                app:layout_constraintStart_toStartOf="@+id/ready_to_spend_tv"
+                app:layout_constraintTop_toBottomOf="@+id/statement_date_tv" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/interest_earned_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:background="@color/primary_color_dark"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="32dp"
+                app:layout_constraintTop_toBottomOf="@+id/container_space">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Interest earned in Mar"
+                    android:textColor="@color/color_grey"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1.00 SGD"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/interest_earned_break_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/primary_color_dark"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="0.4dp"
+                app:layout_constraintTop_toBottomOf="@+id/interest_earned_container"
+                app:srcCompat="@color/color_grey" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/money_in_and_out_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/primary_color_dark"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="32dp"
+                android:text="Money in and out"
+                android:textColor="@color/color_grey"
+                android:textSize="15sp"
+                app:layout_constraintTop_toBottomOf="@+id/interest_earned_break_line" />
+
+            <com.jason.app.customize.view.scroll.JsRecyclerView
+                android:id="@+id/rv_chart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                app:bindAdapter="@{iView.chartAdapter}"
+                app:initGrid="@{iView.MViewModel.chartObs.first.size()}"
+                app:layout_constraintTop_toBottomOf="@+id/money_in_and_out_tv" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/chart_details_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/primary_color_dark"
+                android:paddingHorizontal="16dp"
+                android:paddingTop="32dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/rv_chart">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/chart_date_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{iView.MViewModel.chartFocusedObs.timeDisplayValue(`MMM yyyy`)}"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Apr 2021" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/money_in_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="16dp"
+                    android:drawablePadding="10dp"
+                    android:text="Money in"
+                    android:textColor="@color/color_grey"
+                    android:textSize="14sp"
+                    app:drawableStartCompat="@drawable/bg_circle_money_in"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/chart_date_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/money_in_value_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{iView.MViewModel.chartFocusedObs.inDisplayValue()}"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/money_in_tv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/money_in_tv"
+                    tools:text="1,000.00 SGD" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/money_out_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="16dp"
+                    android:drawablePadding="10dp"
+                    android:text="Money out"
+                    android:textColor="@color/color_grey"
+                    android:textSize="14sp"
+                    app:drawableStartCompat="@drawable/bg_circle_money_out"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/money_in_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/money_out_value_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{iView.MViewModel.chartFocusedObs.outDisplayValue()}"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/money_out_tv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/money_out_tv"
+                    tools:text="1,000.00 SGD" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/adding_space"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/primary_color_dark"
+                app:layout_constraintTop_toBottomOf="@+id/chart_details_container" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.jason.app.customize.view.scroll.JsScrollView>
+</layout>

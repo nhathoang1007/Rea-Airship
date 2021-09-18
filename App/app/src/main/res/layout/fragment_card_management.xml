@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="androidx.recyclerview.widget.RecyclerView" />
+
+        <variable
+            name="iView"
+            type="com.jason.app.view.account.manage.CardManagementView" />
+    </data>
+
+    <com.jason.app.customize.view.scroll.JsScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primary_color"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container_space"
+                android:layout_width="wrap_content"
+                android:layout_height="500dp"
+                android:layout_marginTop="32dp"
+                android:padding="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:drawablePadding="10dp"
+                    android:gravity="center"
+                    android:text="Show card\ndetails"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    app:drawableTopCompat="@drawable/ic_eye"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:drawablePadding="10dp"
+                    android:gravity="center"
+                    android:text="Freeze card"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    app:drawableTopCompat="@drawable/ic_snowflake"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/guideline" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/add_to_apple_wallet_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_add_to_wallet"
+                android:paddingVertical="8dp"
+                android:text="Add to Google Wallet"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:paddingHorizontal="48dp"
+                android:layout_marginTop="48dp"
+                android:drawablePadding="10dp"
+                app:drawableStartCompat="@drawable/ic_google_wallet"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/container_space" />
+
+            <com.jason.app.customize.view.scroll.JsRecyclerView
+                android:id="@+id/rv_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:nestedScrollingEnabled="false"
+                app:bindAdapter="@{iView.settingAdapter}"
+                app:initLinear="@{RecyclerView.VERTICAL}"
+                app:layout_constraintTop_toBottomOf="@+id/add_to_apple_wallet_btn" />
+
+            <View
+                android:id="@+id/adding_space"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@+id/rv_settings" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.jason.app.customize.view.scroll.JsScrollView>
+</layout>

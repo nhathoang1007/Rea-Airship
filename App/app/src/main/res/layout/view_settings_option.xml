@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="option"
+            type="com.jason.app.model.Option" />
+        
+        <variable
+            name="isShowBreakLine"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary_color"
+        android:paddingTop="24dp">
+
+        <View
+            android:id="@+id/space"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            app:isVisible="@{!option.firstOption &amp;&amp; option.header != null}"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/header_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{option.header}"
+            android:textAllCaps="true"
+            android:textColor="@color/color_grey"
+            android:paddingHorizontal="16dp"
+            android:textSize="12sp"
+            android:letterSpacing="0.1"
+            android:textStyle="bold"
+            app:isVisible="@{option.header != null}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/space"
+            tools:text="Header" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/option_name_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{option.name}"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:layout_marginBottom="24dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/break_line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header_tv"
+            app:layout_goneMarginTop="0dp"
+            tools:text="Option Name" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rotation="180"
+            android:layout_marginHorizontal="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/option_name_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/option_name_tv"
+            app:srcCompat="@drawable/ic_back_white" />
+
+        <View
+            android:id="@+id/break_line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:visibility="gone"
+            app:isVisible="@{isShowBreakLine}"
+            android:background="@color/color_grey"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

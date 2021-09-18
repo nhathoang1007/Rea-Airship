@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="kotlin.jvm.functions.Function1" />
+
+        <import type="kotlin.Unit" />
+
+        <import type="com.jason.app.model.Chart" />
+
+        <variable
+            name="chart"
+            type="com.jason.app.model.Chart" />
+
+
+        <variable
+            name="onChartClicked"
+            type="Function1&lt;Chart, Unit>" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary_color_dark"
+        app:onDelayClicked="@{() -> onChartClicked.invoke(chart)}">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/month_tv"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_height="wrap_content"
+            android:text="@{chart.timeDisplayValue(`MMM`)}"
+            android:textAllCaps="true"
+            android:textColor="#EEFFFFFF"
+            android:letterSpacing="0.1"
+            app:setAlpha="@{chart.focused ? 1.0f : 0.7f}"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="JAN" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/month_tv"
+            app:setAlpha="@{chart.focused ? 1.0f : 0.4f}">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/money_in_column"
+                android:layout_width="28dp"
+                android:layout_height="100dp"
+                android:translationX="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:srcCompat="@drawable/bg_money_in" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/money_out_column"
+                android:layout_width="28dp"
+                android:layout_height="50dp"
+                android:translationX="-3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/guideline"
+                app:srcCompat="@drawable/bg_money_out" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

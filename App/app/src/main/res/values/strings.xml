@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Mobile Data Usage</string>
+    <string name="unauthorized_user">Unauthorised User</string>
+    <string name="forbidden">Request is forbidden</string>
+    <string name="internal_server_error">Internal Server Error</string>
+    <string name="wrong_data_format">Wrong data format</string>
+    <string name="bad_request">Bad Request</string>
+    <string name="no_internet">No Internet Connection</string>
+
+    <string name="card_settings_text">Card Settings</string>
+    <string-array name="card_settings">
+        <item>Report lost card</item>
+        <item>Replace card</item>
+        <item>Change card limit</item>
+        <item>Message oversea use</item>
+        <item>Request fee waiver</item>
+        <item>Dispute transactions</item>
+    </string-array>
+
+    <string name="account_settings_text">Account Settings</string>
+    <string-array name="account_settings">
+        <item>Manage transaction limit</item>
+        <item>Manage PayNow</item>
+    </string-array>
+</resources>
